@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Vercel Hook
-        run: curl -X POST "${{secrets.DEPLOY_HOOK}}}"
+        run: curl -X POST "${{secrets.DEPLOY_HOOK}}"
