@@ -1,20 +1,27 @@
 /* Make clicks pass-through */
+html.dark {
+    --prgs-bar: white
+  }
+  
+  :root {
+    --prgs-bar: rgb(28, 25, 23)
+  }
+
 #nprogress {
     pointer-events: none;
 }
 
 #nprogress .bar {
-    background: #29d;
-    opacity: 0.75;
+    background: var(--prgs-bar);
+    opacity: 1;
     position: fixed;
     z-index: 1031;
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 3.5px;
 }
 
-/* Fancy blur effect */
 #nprogress .peg {
     display: block;
     position: absolute;
@@ -41,8 +48,8 @@
     box-sizing: border-box;
 
     border: solid 2px transparent;
-    border-top-color: #29d;
-    border-left-color: #29d;
+    border-top-color: var(--prgs-bar);
+    border-left-color: var(--prgs-bar);
     border-radius: 50%;
 
     -webkit-animation: nprogress-spinner 400ms linear infinite;
