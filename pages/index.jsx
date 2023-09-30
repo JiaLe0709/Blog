@@ -2,6 +2,8 @@ import SocialLink from '@/components/Home/LinkBlock';
 import ArticeList from '@/components/Home/ArticleList'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
+import NotionRenderer from '@/components/Post/NotionRenderer'
+import PropTypes from 'prop-types'
 import Layout from '@/layouts/Glayouts';
 import BLOG from '@/blog.config';
 import Link from 'next/link'
@@ -31,12 +33,21 @@ export async function getStaticProps() {
   }
 }
 
-const IndexPage = ({postsToShow}) => {
+const IndexPage = ({postsToShow, blockMap}) => {
+  
   return (
     <>
       <Layout title='Home'>
         <main>
           <div className='mx-auto max-w-2xl space-y-8 my-10'>
+            <div className='my-auto font-semibold text-lg'>
+              <NotionRenderer
+            className='md:ml-0'
+            blockMap={blockMap}
+            frontMatter={{}}
+            subPageTitle={null}
+          />
+            </div>
           <div className="flex justify-between my-auto">
                 <p className="my-auto font-semibold text-lg">Posts</p>
                 <TooltipProvider>
@@ -71,3 +82,7 @@ const IndexPage = ({postsToShow}) => {
 };
 
 export default IndexPage;
+
+IndexPage.propTypes = {
+  blockMap: PropTypes.object.isRequired,
+}

@@ -6,7 +6,6 @@ import FormattedDate from '@/components/Common/FormattedDate'
 import NotionRenderer from '@/components/Post/NotionRenderer'
 import Back from '@/components/Navbar/Back'
 import { ChevronLeftIcon } from '@heroicons/react/outline'
-import { Badge } from "@/components/ui/badge"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Content(props) {

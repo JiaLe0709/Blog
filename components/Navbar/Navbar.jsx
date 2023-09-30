@@ -1,6 +1,5 @@
 import { usePathname } from "next/navigation";
 import ThemeSwitcher from "@/components/Theme/ThemeSwitcher";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import Back from "@/components/Navbar/Back";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
@@ -10,7 +9,8 @@ export default function Navigation() {
   const pathname = usePathname();
   const Home = pathname === "/";
   const Contact = pathname === "/contact";
-  const exceptionalPage = !(Home || Contact);
+  const PostPage = pathname === "/posts";
+  const exceptionalPage = !(Home || Contact || PostPage);
 
   if (exceptionalPage) {
     return null;
@@ -61,17 +61,7 @@ export default function Navigation() {
               Contact
             </Link>
           )}
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <ThemeSwitcher />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Theme Switcher</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-
+          <ThemeSwitcher />
         </div>
       </div>
     </div>
