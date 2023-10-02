@@ -6,10 +6,10 @@ const Home = () => {
       </div>
       <div className="space-y-4">
         <p>
-          I'm Jia Le. A Chess enthusiast.
+          I&#39;m Jia Le. A Chess enthusiast.
         </p>
         <p>
-          "Yesterday's history, tomorrow's mystery, but today's a gift. That's Why it's called the present."
+        &#34;Yesterday&#39;s history, tomorrow&#39;s mystery, but today&#39;s a gift. That&#39;s Why it&#39;s called the present.&#34;
         </p>
       </div>
     </>
