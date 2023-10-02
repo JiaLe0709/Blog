@@ -7,6 +7,12 @@ const BLOG = {
     contact: true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
     path: '',
     sortByDate: true,
+    pwa: true, // Boolean: true / false
+    /*
+    * PWA = manifest.json in ./public
+    - Update the data there
+    ref: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+    */
     // It's not safety to update the data here.
     // Don't modified them, just set & update the value in .env
     telegramToken: process.env.TG_TOKEN,
@@ -17,6 +23,7 @@ const BLOG = {
     notionAccessToken: process.env.NOTION_ACCESS_TOKEN, 
     useMail: true, // Boolean: true / false ('mailto:' function)
     showButton: true, // Boolean: true / false (For Homepage)
+    homePageUseNotion: false, // Boolean: true / false , if true edit page with slug 'index'
     useRss: false, // new feature - not working
     buttonData: [
         /*
