@@ -5,8 +5,11 @@ export default function Document() {
   return (
     <Html lang="en" >
       <Head>
-      <link rel='icon' href={BLOG.icon} />
-      <meta name='theme-color' content='#0C0A09'/>
+        <link rel='icon' href={BLOG.icon} />
+        <meta name='theme-color' content='#0C0A09' />
+        {BLOG.pwa && (
+          <link rel="manifest" href="/manifest.json" />
+        )}
       </Head>
       <body>
         <Main />

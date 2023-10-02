@@ -33,31 +33,34 @@ const Contact = () => {
     }
     return (
       <>
-        <Layout title='Contact'></Layout>
-        <form
-          className='max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto'
-          onSubmit={sentMessage}
-        >
-          <div>
-            <Label htmlFor="text">Name</Label>
-            <Input id='name' name='name' type="text" placeholder="Name" />
-          </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id='mail' name='email' type="email" placeholder="Email" />
-          </div>
+        <Layout title='Contact' showAuthor={true}>
+          <form
+            autoComplete='off'
+            className='max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto'
+            onSubmit={sentMessage}
+          >
+            <div>
+              <Label htmlFor='name'>Name</Label>
+              <Input id='name' name='name' type="text" placeholder="Name" />
+            </div>
+            <div>
+              <Label htmlFor='mail'>Email</Label>
+              <Input id='mail' name='email' type="email" placeholder="Email" />
+            </div>
 
-          <div className='sm:col-span-2'>
-            <Label htmlFor="text">Message</Label>
-            <Textarea className='h-40' id='message' name='message' placeholder="Type your message here." />
-          </div>
+            <div className='sm:col-span-2'>
+              <Label htmlFor='message'>Message</Label>
+              <Textarea className='h-40' id='message' name='message' placeholder="Type your message here." />
+            </div>
 
-          <div className='sm:col-span-2 flex justify-between items-center'>
+            <div className='sm:col-span-2 flex justify-between items-center'>
 
-            <Button type='submit'>Send</Button>
+              <Button type='submit'>Send</Button>
 
-          </div>
-        </form>
+            </div>
+          </form>
+        </Layout>
+
       </>
     )
   }

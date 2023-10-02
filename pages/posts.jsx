@@ -2,7 +2,7 @@ import Layout from '@/layouts/Glayouts'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import Article from '@/components/Home/articleBlock'
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const posts = await getAllPosts({ onlyPost: true })
   
     const heros = await getAllPosts({ onlyHidden: true })
@@ -27,7 +27,7 @@ export async function getStaticProps() {
 const Posts = ({ posts }) => {
     return (
         <>
-        <Layout title='Posts'>
+        <Layout title='Posts' showAuthor={true}>
         <main>
       <div className="mx-auto max-w-2xl space-y-8 my-10">
             {posts.map((post) => (
