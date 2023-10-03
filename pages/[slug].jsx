@@ -23,9 +23,6 @@ export async function getServerSideProps({ params: { slug } }) {
   const posts = await getAllPosts({ onlyNewsletter: false });
   const post = posts.find((t) => t.slug === slug);
 
-  if (!post) {
-    throw new NotFoundError();
-  }
 
   try {
     const blockMap = await getPostBlocks(post.id);

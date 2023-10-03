@@ -3,6 +3,7 @@ import { Github, Twitter, Facebook, Instagram } from "lucide-react";
 import { FaChessPawn, FaDiscord, FaLink, FaTelegram } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import BLOG from '@/blog.config';
+//import Notice from '@/components/Home/Notice'
 
 // Create Pr if u want more icon :)
 
@@ -64,7 +65,10 @@ const SocialButtons = () => {
             </Button>
           </motion.div>
         ))}
-      </div>
+      </div>{/*
+      <motion.div className="item" variants={item}>
+        <Notice />
+      </motion.div>*/}
     </motion.div>
   );
 };
