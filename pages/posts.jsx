@@ -2,7 +2,7 @@ import Layout from '@/layouts/Glayouts'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import Article from '@/components/Home/articleBlock'
 
-export async function getStaticProps({ req, res }) {
+export async function getServerSideProps({ req, res }) {
     const posts = await getAllPosts({ onlyPost: true })
   
     const heros = await getAllPosts({ onlyHidden: true })
