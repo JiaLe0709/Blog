@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const posts = await getAllPosts({ onlyPost: true })
 
   const heros = await getAllPosts({ onlyHidden: true })
