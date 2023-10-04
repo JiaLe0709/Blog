@@ -19,14 +19,10 @@ const Post = ({ post, blockMap }) => {
   )
 }
 
-export async function getServerSideProps({ params: { slug }, req, res  }) {
+export async function getServerSideProps({ params: { slug } }) {
   const posts = await getAllPosts({ onlyNewsletter: false });
   const post = posts.find((t) => t.slug === slug);
 
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=86400, stale-while-revalidate=59'
-  )
 
   try {
     const blockMap = await getPostBlocks(post.id);
