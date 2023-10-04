@@ -11,11 +11,16 @@ import Link from 'next/link'
 import { ArrowRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ req, res }) {
   const posts = await getAllPosts({ onlyPost: true })
 
   const heros = await getAllPosts({ onlyHidden: true })
   const hero = heros.find((t) => t.slug === 'index')
+
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=86400, stale-while-revalidate=59'
+  )
 
   let blockMap
   try {
