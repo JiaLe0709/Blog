@@ -1,6 +1,6 @@
 import Layout from '@/layouts/postLayout'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
-// import BLOG from '@/blog.config'
+import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { NotFoundError } from 'next/error'
 
