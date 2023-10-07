@@ -25,17 +25,21 @@ export async function getStaticProps() {
     return { props: { post: null, blockMap: null } }
   }
 
-  const postsToShow = posts.slice(0, 5)
+  const postsToShow = posts.slice(0, BLOG.postsPerPage)
   return {
     props: {
+      page: 1, // current page is 1
       postsToShow,
-      blockMap
-    }
+      blockMap,
+      posts, // Add posts data to props
+    },
+    revalidate: 1
   }
 }
 
 
-const IndexPage = ({ postsToShow, blockMap }) => {
+
+const IndexPage = ({ postsToShow, blockMap, posts }) => {
 
   return (
     <>
@@ -55,6 +59,7 @@ const IndexPage = ({ postsToShow, blockMap }) => {
             ) : (
               <Home />
             )}
+
             <div className="flex justify-between my-auto">
               <p className="my-auto font-semibold text-lg">Posts</p>
               <TooltipProvider>
@@ -75,7 +80,7 @@ const IndexPage = ({ postsToShow, blockMap }) => {
                 </Tooltip>
               </TooltipProvider>
             </div>
-            {postsToShow.map((post) => (
+            {postsToShow?.map((post) => (
               <ArticeList key={post.id} post={post} />
             ))}
             {BLOG.showButton && (
