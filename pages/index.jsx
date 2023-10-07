@@ -55,7 +55,6 @@ const IndexPage = ({ postsToShow, blockMap }) => {
             ) : (
               <Home />
             )}
-
             <div className="flex justify-between my-auto">
               <p className="my-auto font-semibold text-lg">Posts</p>
               <TooltipProvider>
