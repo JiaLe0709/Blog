@@ -8,6 +8,7 @@ const BLOG = {
     path: '',
     sortByDate: true,
     pwa: true, // Boolean: true / false
+    link: 'jiale0709.link',
     /*
     * PWA = manifest.json in ./public
     - Update the data there

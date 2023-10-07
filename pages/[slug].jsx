@@ -1,6 +1,6 @@
 import Layout from '@/layouts/postLayout'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
-// import BLOG from '@/blog.config'
+import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import { NotFoundError } from 'next/error'
 
@@ -19,14 +19,17 @@ const Post = ({ post, blockMap }) => {
   )
 }
 
-export async function getServerSideProps({ params: { slug }, req, res  }) {
+export async function getStaticPaths() {
+  const posts = await getAllPosts({ onlyNewsletter: false })
+  return {
+    paths: posts.map((row) => `${BLOG.path}/${row.slug}`),
+    fallback: true
+  }
+}
+
+export async function getStaticProps({ params: { slug } }) {
   const posts = await getAllPosts({ onlyNewsletter: false });
   const post = posts.find((t) => t.slug === slug);
-
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=86400, stale-while-revalidate=59'
-  )
 
   try {
     const blockMap = await getPostBlocks(post.id);
