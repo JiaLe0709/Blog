@@ -18,26 +18,28 @@ export async function getStaticProps() {
 
   return {
     props: {
+      page: 1, // current page is 1
       blockMap,
-      posts
-    }
+      posts, // Add posts data to props
+    },
+    revalidate: 1
   }
 }
 
 const Posts = ({ posts }) => {
-  return (
-    <>
-      <Layout title='Posts' showAuthor={true}>
+    return (
+        <>
+        <Layout title='Posts' showAuthor={true}>
         <main>
-          <div className="mx-auto max-w-2xl space-y-8 my-10">
-            {posts.map((post) => (
-              <Article key={post.id} post={post} />
+      <div className="mx-auto max-w-2xl space-y-8 my-10">
+            {posts && posts.map((post) => (
+                <Article key={post.id} post={post} />
             ))}
-          </div>
-        </main>
-      </Layout>
-    </>
-  )
+            </div>
+            </main>
+        </Layout>
+        </>
+    )
 }
 
 export default Posts;
