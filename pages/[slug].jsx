@@ -2,7 +2,7 @@ import Layout from '@/layouts/postLayout'
 import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
-import { NotFoundError } from 'next/error'
+import NotFound from '@/components/NotFound'
 
 const Post = ({ post, blockMap }) => {
   const router = useRouter()
@@ -11,9 +11,11 @@ const Post = ({ post, blockMap }) => {
       <p>Loading</p>
     )
   }
+
   if (!post) {
-    throw new NotFoundError();
+    return <NotFound statusCode={404} />
   }
+
   return (
     <Layout blockMap={blockMap} frontMatter={post} />
   )
@@ -21,6 +23,7 @@ const Post = ({ post, blockMap }) => {
 
 export async function getStaticPaths() {
   const posts = await getAllPosts({ onlyNewsletter: false })
+  console.log(posts)
   return {
     paths: posts.map((row) => `${BLOG.path}/${row.slug}`),
     fallback: true
@@ -30,6 +33,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const posts = await getAllPosts({ onlyNewsletter: false });
   const post = posts.find((t) => t.slug === slug);
+  console.log(posts)
+
+  if (!post) {
+    return {
+      notFound: true
+    }
+  }
 
   try {
     const blockMap = await getPostBlocks(post.id);
@@ -42,9 +52,14 @@ export async function getStaticProps({ params: { slug } }) {
   } catch (err) {
     console.error(err);
     return {
-      notFound: true,
+      props: {
+        post: null,
+        blockMap: null,
+        notFound: true,
+      },
     };
   }
 }
+
 
 export default Post
