@@ -48,6 +48,7 @@ export async function getStaticProps({ params: { slug } }) {
         post,
         blockMap,
       },
+      revalidate: 1
     };
   } catch (err) {
     console.error(err);
