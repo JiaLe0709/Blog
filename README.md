@@ -43,3 +43,11 @@ The easiest way to deploy this Blog app is to use the [Vercel](https://vercel.co
 3. using Vercel create new project select the repo that you fork just now
 4. add env
 5. deploy and wait until it done
+
+## Docker
+
+```bash
+docker push jiale0709/blog
+```
+
+docker.io/jiale0709/blog
