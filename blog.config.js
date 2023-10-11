@@ -19,9 +19,9 @@ const BLOG = {
     // Don't modified them, just set & update the value in .env
     telegramToken: process.env.TG_TOKEN,
     telegramChatId: process.env.TG_CHAT_ID,
-    notionDomain: process.env.NOTION_DOMAIN,
-    notionPageId: process.env.NOTION_PAGE_ID, 
-    notionSpacesId: process.env.NOTION_SPACES_ID, 
+    notionDomain: process.env.NOTION_DOMAIN || "jiale0709.notion.site",
+    notionPageId: process.env.NOTION_PAGE_ID || "62581ac7b5334d6197dc33d9416a9cc3", 
+    notionSpacesId: process.env.NOTION_SPACES_ID || "3e2958af48ab41a3821642983fdeae70", 
     notionAccessToken: process.env.NOTION_ACCESS_TOKEN, 
     useMail: true, // Boolean: true / false ('mailto:' function)
     showButton: true, // Boolean: true / false (For Homepage)
