@@ -13,6 +13,7 @@ const withMDX = require('@next/mdx')({
 
 const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  output: 'standalone',
   reactStrictMode: true,
   transpilePackages: ['dayjs'],
   images: {
