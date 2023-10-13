@@ -5,6 +5,14 @@ import FormattedDate from '@/components/Common/FormattedDate'
 import Link from "next/link";
 
 const Articles = ({ post }) => {
+
+  let icon;
+  if (post.icon === undefined) {
+      icon = ''
+  } else {
+      icon = post.icon
+  }
+
   return (
     <>
       <div key={post.id} className="p-8 bg-muted rounded-2xl">
@@ -13,9 +21,14 @@ const Articles = ({ post }) => {
           aria-label={post.title}
         >
           <div className="space-y-2">
-            <p className="font-semibold hover:underline">{`${post.icon} ${post.title}`}</p>
+            <p className="font-semibold hover:underline">{`${icon} ${post.title}`}</p>
             <div className="flex gap-2">
-              <p>{Math.round(post.count / 250)} min</p>/
+              {post.count !== null && post.count !== undefined && post.count !== '' && (
+                <p>{(Math.round(post.count / 250))}</p>
+              )}
+              {post.count !== null && post.count !== undefined && post.count !== '' && (
+                <p>/</p>
+              )}
               <Badge variant="default">{post.category}</Badge>/
               <p>
                 <FormattedDate date={post.date} />

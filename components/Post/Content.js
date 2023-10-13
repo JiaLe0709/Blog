@@ -11,13 +11,20 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 export default function Content(props) {
   const { frontMatter, blockMap, pageTitle } = props
 
+  let icon;
+  if (frontMatter.icon === undefined) {
+    icon = '';
+  } else {
+    icon = frontMatter.icon;
+  }
+
   return (
     <>
       <div className="mx-auto space-y-8">
         <div className="sticky py-4 top-0 z-50 flex justify-between w-full bg-opacity-75 backdrop-blur-lg">
           <Back />
 
-          <p className="text-sm my-auto">{`${frontMatter.icon} ${frontMatter.title}`}</p>
+          <p className="text-sm my-auto">{`${icon} ${frontMatter.title}`}</p>
 
 
           <ThemeSwitcher />
@@ -43,7 +50,7 @@ export default function Content(props) {
             <div className="max-w-2xl mx-auto space-y-2">
 
               <h1 className='font-bold text-3xl text-black dark:text-white'>
-                {frontMatter.icon} {frontMatter.title}
+                {icon} {frontMatter.title}
               </h1>
 
               <div className="flex  text-muted-foreground text-sm">
@@ -54,7 +61,7 @@ export default function Content(props) {
                 {frontMatter.tags && (
                   <div className='flex flex-nowrap gap-2 max-w-full overflow-x-auto article-tags'>
                     {frontMatter.tags.map((tag) => (
-                      <div key={tag} className='inline-flex  items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/8'>{tag}</div> 
+                      <div key={tag} className='inline-flex  items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/8'>{tag}</div>
                     ))}
                   </div>
                 )}
@@ -65,7 +72,9 @@ export default function Content(props) {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <p>
-                        {Math.round(frontMatter.count / 250)} min
+                        {frontMatter.count !== null && frontMatter.count !== undefined && frontMatter.count !== '' && (
+                          <p>/</p>
+                        )}
                       </p>
                     </TooltipTrigger>
                     <TooltipContent>

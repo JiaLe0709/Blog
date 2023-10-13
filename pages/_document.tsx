@@ -10,6 +10,12 @@ export default function Document() {
         {BLOG.pwa && (
           <link rel="manifest" href="/manifest.json" />
         )}
+        <meta name="robots" content="follow, index" />
+        {BLOG.SEO_GOOGLE_SITE_VERIFICATION && (
+          <meta
+            name="google-site-verification"
+            content={BLOG.SEO_GOOGLE_SITE_VERIFICATION}
+          />)}
       </Head>
       <body>
         <Main />

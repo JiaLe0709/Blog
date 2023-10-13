@@ -4,7 +4,7 @@ const BLOG = {
     bio: 'A Magical Blog', // Default
     email: 'jle26531@gmail.com', // For mailto: function and backup contact
     author: 'Jia Le', // Your name
-    contact: true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
+    contact: process.env.CONTACT || true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
     path: '',
     sortByDate: true,
     pwa: true, // Boolean: true / false
@@ -17,8 +17,8 @@ const BLOG = {
     */
     // It's not safety to update the data here.
     // Don't modified them, just set & update the value in .env
-    telegramToken: process.env.TG_TOKEN,
-    telegramChatId: process.env.TG_CHAT_ID,
+    telegramToken: process.env.TG_TOKEN || '',
+    telegramChatId: process.env.TG_CHAT_ID || '',
     notionDomain: process.env.NOTION_DOMAIN || "jiale0709.notion.site",
     notionPageId: process.env.NOTION_PAGE_ID || "62581ac7b5334d6197dc33d9416a9cc3", 
     notionSpacesId: process.env.NOTION_SPACES_ID || "3e2958af48ab41a3821642983fdeae70", 
@@ -27,6 +27,7 @@ const BLOG = {
     showButton: true, // Boolean: true / false (For Homepage)
     homePageUseNotion: false, // Boolean: true / false , if true edit page with slug 'index'
     useRss: false, // new feature - not working
+    SEO_GOOGLE_SITE_VERIFICATION: process.env.SEO_GOOGLE || '',
     buttonData: [
         /*
         * currently support button: 
