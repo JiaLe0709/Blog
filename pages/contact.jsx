@@ -4,11 +4,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
+import NotFound from "@/components/NotFound"
 
 const Contact = () => {
   if (!BLOG.contact) {
     return (
-      <p>404</p>
+        <>
+        <NotFound />
+        </>
+      
     )
   } else {
     const sentMessage = async (event) => {
