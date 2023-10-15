@@ -8,7 +8,7 @@ const BLOG = {
     path: '',
     sortByDate: true,
     pwa: true, // Boolean: true / false
-    link: 'jiale0709.link',
+    link: 'https://jiale0709.link',
     postsPerPage: 5, // int only
     /*
     * PWA = manifest.json in ./public
