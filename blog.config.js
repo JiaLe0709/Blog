@@ -5,7 +5,7 @@ const BLOG = {
     email: 'jle26531@gmail.com', // For mailto: function and backup contact
     author: 'Jia Le', // Your name
     contact: process.env.CONTACT || true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
-    path: '',
+    path: '', // dont modify it
     sortByDate: true,
     pwa: true, // Boolean: true / false
     link: 'https://jiale0709.link',
@@ -28,6 +28,7 @@ const BLOG = {
     homePageUseNotion: false, // Boolean: true / false , if true edit page with slug 'index'
     useRss: false, // new feature - not working
     SEO_GOOGLE_SITE_VERIFICATION: process.env.SEO_GOOGLE || '',
+    starrySky: true, // StarrySKy Background animation (dark theme only...)
     buttonData: [
         /*
         * currently support button: 

@@ -12,6 +12,8 @@ import { Inter } from "next/font/google"
 import NProgress from 'nprogress'
 import Navbar from '@/components/Navbar/Navbar'
 import Footer from '@/components/Footer/Footer'
+import StarrySky from '@/components/Theme/StarrySky'
+import BLOG from '@/blog.config'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -48,11 +50,12 @@ function App({ Component, pageProps }) {
   return (
     <>
       <ThemeProvider attribute="class" enableSystem>
-          <Navbar />
-          <div className={`flex flex-col min-h-screen justify-between space-y-4 container ${inter.className}`}>
-            <Component {...pageProps} />
-            <Footer />
-          </div>
+        {BLOG.starrySky && (<StarrySky />)}
+        <Navbar />
+        <div className={`flex flex-col min-h-screen justify-between space-y-4 container ${inter.className}`}>
+          <Component {...pageProps} />
+          <Footer />
+        </div>
       </ThemeProvider>
       <style jsx global>
         {`
