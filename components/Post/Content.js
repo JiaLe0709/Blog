@@ -18,6 +18,13 @@ export default function Content(props) {
     icon = frontMatter.icon;
   }
 
+  let count;
+  if (Math.round(frontMatter.count / 250) < 1) {
+    count = 1;
+  } else {
+    count = Math.round(frontMatter.count / 250);
+  }
+
   return (
     <>
       <div className="mx-auto space-y-8">
@@ -71,11 +78,13 @@ export default function Content(props) {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <p>
                         {frontMatter.count !== null && frontMatter.count !== undefined && frontMatter.count !== '' && (
-                          <p>/</p>
+                          <>
+                            <div>
+                              <p>{ count } min</p>
+                            </div>
+                          </>
                         )}
-                      </p>
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>Time to read</p>

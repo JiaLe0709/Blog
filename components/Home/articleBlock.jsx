@@ -13,6 +13,13 @@ const Articles = ({ post }) => {
       icon = post.icon
   }
 
+  let count;
+  if (Math.round(post.count / 250) < 1) {
+    count = 1;
+  } else {
+    count = Math.round(post.count / 250);
+  }
+
   return (
     <>
       <div key={post.id} className="p-8 bg-muted rounded-2xl">
@@ -21,10 +28,10 @@ const Articles = ({ post }) => {
           aria-label={post.title}
         >
           <div className="space-y-2">
-            <p className="font-semibold hover:underline">{`${icon} ${post.title}`}</p>
+            <p className="font-semibold ">{`${icon} ${post.title}`}</p>
             <div className="flex gap-2">
               {post.count !== null && post.count !== undefined && post.count !== '' && (
-                <p>{(Math.round(post.count / 250))}</p>
+                <p>{ count } min</p>
               )}
               {post.count !== null && post.count !== undefined && post.count !== '' && (
                 <p>/</p>

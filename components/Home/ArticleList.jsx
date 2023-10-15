@@ -13,6 +13,13 @@ const ArticleList = ({ post }) => {
         icon = post.icon
     }
 
+    let count;
+    if (Math.round(post.count / 250) < 1) {
+        count = 1;
+    } else {
+        count = Math.round(post.count / 250);
+    }
+
     return (
         <>
 
@@ -27,12 +34,30 @@ const ArticleList = ({ post }) => {
                             <p className="truncate">{`${icon} ${post.title}`}</p>
 
                             <div className="flex gap-2">
+                                {post.lang === 'zh' && (
+                                    <>
+                                        <TooltipProvider>
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <Badge>中文</Badge>
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Post Written in Chinese</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </>
+                                )}
+                                {post.lang === 'zh' && (
+                                    <p>/</p>
+                                )}
+                            
                                 {/*  in one minute, a person can typically read between 200 and 250 words (Maybe idk - i'm not expert) */}
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
                                             {post.count !== null && post.count !== undefined && post.count !== '' && (
-                                                <p className="whitespace-nowrap">{Math.round(post.count / 250)} min</p>
+                                                <p className="whitespace-nowrap">{count} min</p>
                                             )}
                                         </TooltipTrigger>
                                         <TooltipContent>
@@ -43,7 +68,6 @@ const ArticleList = ({ post }) => {
                                 {post.count !== null && post.count !== undefined && post.count !== '' && (
                                     <p>/</p>
                                 )}
-
                                 <Badge variant="secondary">{post.category}</Badge>/
                                 <p className="whitespace-nowrap">
                                     <FormattedDate date={post.date} />
