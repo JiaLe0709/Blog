@@ -4,7 +4,7 @@ import NotFound from '@/components/NotFound'
 const Error = () => {
     return(
         <>
-        <Layout title='Error' showAuthor={false}>
+        <Layout title='Error'>
             <NotFound statusCode='404' />
         </Layout>
         </>

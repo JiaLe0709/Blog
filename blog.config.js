@@ -5,10 +5,10 @@ const BLOG = {
     email: 'jle26531@gmail.com', // For mailto: function and backup contact
     author: 'Jia Le', // Your name
     contact: process.env.CONTACT || true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
-    path: '', // dont modify it
     sortByDate: true,
     pwa: true, // Boolean: true / false
     link: 'https://jiale0709.link',
+    path: '', // dont't modify
     postsPerPage: 5, // int only
     /*
     * PWA = manifest.json in ./public
