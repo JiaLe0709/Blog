@@ -43,7 +43,7 @@ const IndexPage = ({ postsToShow, blockMap, posts }) => {
 
   return (
     <>
-      <Layout title='Home' showAuthor={true}>
+      <Layout title={BLOG.title}>
         <main>
           <div className='mx-auto max-w-2xl space-y-8 my-10'>
 

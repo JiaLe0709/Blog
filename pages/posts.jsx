@@ -29,7 +29,7 @@ export async function getStaticProps() {
 const Posts = ({ posts }) => {
     return (
         <>
-        <Layout title='Posts' showAuthor={true}>
+        <Layout title='Posts'>
         <main>
       <div className="mx-auto max-w-2xl space-y-8 my-10">
             {posts && posts.map((post) => (

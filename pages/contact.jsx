@@ -37,7 +37,7 @@ const Contact = () => {
     }
     return (
       <>
-        <Layout title='Contact' showAuthor={true}>
+        <Layout title='Contact'>
           <form
             autoComplete='off'
             className='max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto'
