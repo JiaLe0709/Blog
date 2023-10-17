@@ -14,7 +14,7 @@ const ArticleList = ({ post }) => {
     }
 
     let count;
-    if (Math.round(post.count / 250) < 1) {
+    if (Math.max(Math.round(post.count / 250), 1)) {
         count = 1;
     } else {
         count = Math.round(post.count / 250);
@@ -70,7 +70,7 @@ const ArticleList = ({ post }) => {
                                 )}
                                 <Badge variant="secondary">{post.category}</Badge>/
                                 <p className="whitespace-nowrap">
-                                    {post.date}
+                                    <FormattedDate date={post.date} />
                                 </p>
                             </div>
                         </div>
