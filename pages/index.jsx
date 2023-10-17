@@ -1,4 +1,4 @@
-import SocialLink from '@/components/Home/LinkBlock';
+//import SocialLink from '@/components/Home/LinkBlock';
 import ArticeList from '@/components/Home/ArticleList'
 import Home from '@/components/Home/Home'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -83,9 +83,7 @@ const IndexPage = ({ postsToShow, blockMap, posts }) => {
             {postsToShow?.map((post) => (
               <ArticeList key={post.id} post={post} />
             ))}
-            {BLOG.showButton && (
-              <SocialLink />
-            )}
+            
           </div>
         </main>
       </Layout>

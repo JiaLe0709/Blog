@@ -33,7 +33,7 @@
     "class-variance-authority": "^0.7.0",
     "dayjs": "^1.11.7",
     "feed": "^4.2.2",
-    "framer-motion": "^6.4.3",
+    "framer-motion": "^6.5.1",
     "got": "^12.5.3",
     "heroicons": "^2.0.18",
     "jest-worker": "^29.7.0",
