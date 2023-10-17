@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { getPageTitle } from 'notion-utils'
 import Comments from '@/components/Post/Comments'
 import Head from 'next/head'
-import BLOG from '@/blog.config'
 import Content from '@/components/Post/Content'
 
 const Layout = ({ blockMap, frontMatter, fullWidth = false, subPage = false }) => {
@@ -18,7 +17,8 @@ const Layout = ({ blockMap, frontMatter, fullWidth = false, subPage = false }) =
   return (
     <>
     <Head>
-      <title>{`${frontMatter.title}${frontMatter.title === pageTitle ? '' : ' | ' + pageTitle} | ${BLOG.author}`}</title>
+      <meta name="description" content={frontMatter.summary} />
+      <title>{`${frontMatter.title}${frontMatter.title === pageTitle ? '' : ' | ' + pageTitle}`}</title>
     </Head>
     <div>
         <Content

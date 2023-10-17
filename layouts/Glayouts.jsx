@@ -14,6 +14,7 @@ export default function Layout({ children, title }) {
             <NextHead>
                 <link rel="icon" href={BLOG.icon} />
                 <title>{`${titles}`}</title>
+                <meta name="description" content={BLOG.bio} />
             </NextHead>
             {children}
         </>
