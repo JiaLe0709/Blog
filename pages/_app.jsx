@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 import { ThemeProvider } from 'next-themes'
 import { Inter } from "next/font/google"
 import NProgress from 'nprogress'
-import Navbar from '@/components/Navbar/Navbar'
+
 import Footer from '@/components/Footer/Footer'
 import StarrySky from '@/components/Theme/StarrySky'
 import BLOG from '@/blog.config'
@@ -51,14 +51,10 @@ function App({ Component, pageProps }) {
     <>
       <ThemeProvider attribute="class" enableSystem>
         {BLOG.starrySky && (<StarrySky />)}
-        <Navbar />
-        <div className={`flex flex-col min-h-screen justify-between space-y-4 container ${inter.className}`}>
-          <Component {...pageProps} />
-          <Footer />
-        </div>
+          <Component {...pageProps} />       
       </ThemeProvider>
       <style jsx global>
-        {`
+                {`
         html {
           font-family: ${inter.style.fontFamily} !important;
         }

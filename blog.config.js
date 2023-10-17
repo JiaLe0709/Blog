@@ -28,7 +28,7 @@ const BLOG = {
     homePageUseNotion: false, // Boolean: true / false , if true edit page with slug 'index'
     useRss: false, // new feature - not working
     SEO_GOOGLE_SITE_VERIFICATION: process.env.SEO_GOOGLE || '',
-    starrySky: false, // StarrySKy Background animation (dark theme only...)
+    starrySky: true, // StarrySKy Background animation (dark theme only...)
     buttonData: [
         /*
         * currently support button: 
