@@ -39,7 +39,7 @@ export async function getStaticProps() {
 
 
 
-const IndexPage = ({ postsToShow, blockMap, posts }) => {
+const IndexPage = ({ postsToShow, blockMap, posts, needContainer = true }) => {
 
   return (
     <>

@@ -52,7 +52,7 @@ const ArticleList = ({ post }) => {
                                     <p>/</p>
                                 )}
                             
-                                {/*  in one minute, a person can typically read between 200 and 250 words (Maybe idk - i'm not expert) */}
+                                {/*  in one minute, a person can typically read between 200 and 250 words (Maybe idk :]) */}
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>

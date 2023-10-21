@@ -3,12 +3,13 @@ import { getAllPosts, getPostBlocks } from '@/lib/notion'
 import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import NotFound from '@/components/NotFound'
+import Loading from '@/components/Common/Loading'
 
 const Post = ({ post, blockMap }) => {
   const router = useRouter()
   if (router.isFallback) {
     return (
-      <p>Loading</p>
+      <Loading />
     )
   }
 
