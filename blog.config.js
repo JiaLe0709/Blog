@@ -8,6 +8,7 @@ const BLOG = {
     sortByDate: true,
     pwa: true, // Boolean: true / false
     link: 'https://jiale0709.link',
+    defaultCover: '/cover.jpg',
     path: '', // dont't modify
     postsPerPage: 5, // int only
     /*

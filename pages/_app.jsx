@@ -17,7 +17,7 @@ import BLOG from '@/blog.config'
 
 const inter = Inter({ subsets: ['latin'] })
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps, needContainer=true }) {
   const router = useRouter()
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function App({ Component, pageProps }) {
       <ThemeProvider attribute="class" enableSystem>
         {BLOG.starrySky && (<StarrySky />)}
         <Navbar />
-        <div className={`flex flex-col min-h-screen justify-between space-y-4 container ${inter.className}`}>
+        <div className={`flex flex-col min-h-screen justify-between space-y-4 ${needContainer && 'container'} ${inter.className}`}>
           <Component {...pageProps} />
           <Footer />
         </div>

@@ -23,7 +23,7 @@ const Articles = ({ post }) => {
   return (
     <>
       <div key={post.id} className="p-8 bg-muted rounded-2xl">
-        <Link
+          <Link
           href={`${BLOG.path}/${post.slug}`}
           aria-label={post.title}
         >
@@ -45,6 +45,7 @@ const Articles = ({ post }) => {
           </div>
         </Link>
       </div>
+      
     </>
   );
 }

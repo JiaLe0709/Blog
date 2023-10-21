@@ -14,7 +14,7 @@ const ArticleList = ({ post }) => {
     }
 
     let count;
-    if (Math.max(Math.round(post.count / 250), 1)) {
+    if (Math.round(post.count / 250) < 1) {
         count = 1;
     } else {
         count = Math.round(post.count / 250);
@@ -52,7 +52,7 @@ const ArticleList = ({ post }) => {
                                     <p>/</p>
                                 )}
                             
-                                {/*  in one minute, a person can typically read between 200 and 250 words (Maybe idk :] ) */}
+                                {/*  in one minute, a person can typically read between 200 and 250 words (Maybe idk :]) */}
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
