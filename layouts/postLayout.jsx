@@ -27,7 +27,7 @@ const Layout = ({ blockMap, frontMatter, fullWidth = true, subPage = false }) =>
     )}
     &theme=light&border=solid
     `
-console.log(frontMatter.page_cover)
+    
   return (
     <>
       <Head>
