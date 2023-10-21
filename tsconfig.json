@@ -33,7 +33,7 @@
     "pages/_app.js",
     "layouts/Glayouts.jsx",
     "tailwind.config.js"
-, "pages/contact.jsx"  ],
+, "pages/contact.jsx", "pages/_document.tsx"  ],
   "exclude": [
     "node_modules"
   ]

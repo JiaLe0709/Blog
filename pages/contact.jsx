@@ -10,7 +10,7 @@ const Contact = () => {
   const [submitting, setSubmitting] = useState(false)
   const sentMessage = async (event) => {
       event.preventDefault()
-
+      setSubmitting(true)
       const tgUrl = '/api/sendtotg'
       const res = await fetch(tgUrl, {
         body: JSON.stringify({
@@ -26,16 +26,15 @@ const Contact = () => {
       // await res.json()
       const result = await res.json()
       const status = result.status
+      if (status) {
+        setSubmitting(false)
+      }
       console.log('status:', status)
     }
   
   return (
     <>
       <Layout title={'Contact'}>
-      <div className="mx-auto max-w-2xl space-y-8 my-10">
-        <h1 className="text-4xl font-bold">Contact</h1>
-      </div>
-      <div className="max-w-screen-md   text-center mx-auto"></div>
         <form
           autoComplete='off'
           className='max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto'
