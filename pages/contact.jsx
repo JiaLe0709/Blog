@@ -35,14 +35,7 @@ const Contact = () => {
       <div className="mx-auto max-w-2xl space-y-8 my-10">
         <h1 className="text-4xl font-bold">Contact</h1>
       </div>
-      <div className="max-w-screen-md   text-center mx-auto">
-        <p>
-          I&#39;m Jia Le. A Chess enthusiast.
-        </p>
-        <p>
-        &#34;Yesterday&#39;s history, tomorrow&#39;s mystery, but today&#39;s a gift. That&#39;s Why it&#39;s called the present.&#34;
-        </p>
-      </div>
+      <div className="max-w-screen-md   text-center mx-auto"></div>
         <form
           autoComplete='off'
           className='max-w-screen-md grid sm:grid-cols-2 gap-4 mx-auto'
