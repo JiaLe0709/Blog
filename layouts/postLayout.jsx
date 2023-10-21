@@ -3,6 +3,7 @@ import { getPageTitle } from 'notion-utils'
 import Comments from '@/components/Post/Comments'
 import Head from 'next/head'
 import Content from '@/components/Post/Content'
+import BLOG from '@/blog.config'
 
 const Layout = ({ blockMap, frontMatter, fullWidth = true, subPage = false }) => {
   const [showSubPageTitle, setShowSubPageTitle] = useState(false)
@@ -14,9 +15,26 @@ const Layout = ({ blockMap, frontMatter, fullWidth = true, subPage = false }) =>
     }
   }, [frontMatter, pageTitle, subPage])
 
+  const ogImage = `https://${BLOG.ogImageGenerateHost}/api/default?logo=${BLOG.link
+    }/favicon.png&siteName=${encodeURIComponent(
+      BLOG.title?.trim()
+    )}&description=${encodeURIComponent(
+      BLOG.bio?.trim()
+    )}&title=${encodeURIComponent(
+      frontMatter.title?.trim()
+    )}&summary=${encodeURIComponent(
+      frontMatter.summary?.trim()
+    )}
+    &theme=light&border=solid
+    `
+console.log(frontMatter.page_cover)
   return (
     <>
       <Head>
+        <meta
+          property='og:image'
+          content={ogImage || BLOG.defaultCover}
+        />
         <meta name="description" content={frontMatter.summary} />
         <title>{`${frontMatter.title}${frontMatter.title === pageTitle ? '' : ' | ' + pageTitle}`}</title>
       </Head>

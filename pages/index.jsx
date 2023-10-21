@@ -39,11 +39,11 @@ export async function getStaticProps() {
 
 
 
-const IndexPage = ({ postsToShow, blockMap, posts, needContainer = true }) => {
+const IndexPage = ({ postsToShow, blockMap, posts }) => {
 
   return (
     <>
-      <Layout title={BLOG.title}>
+      <Layout title={BLOG.title} needContainer={true}>
         <main>
           <div className='mx-auto max-w-2xl space-y-8 my-10'>
 

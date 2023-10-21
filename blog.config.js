@@ -6,6 +6,7 @@ const BLOG = {
     author: 'Jia Le', // Your name
     contact: process.env.CONTACT || true, // Boolean : true / false (use for display the button and '/contact' disable or enable)
     sortByDate: true,
+    keywords: ['Jia Le', 'jiale', "Jia Le's Blog"], // for seo, '', ''
     pwa: true, // Boolean: true / false
     link: 'https://jiale0709.link',
     defaultCover: '/cover.jpg',
@@ -29,6 +30,7 @@ const BLOG = {
     homePageUseNotion: false, // Boolean: true / false , if true edit page with slug 'index'
     useRss: false, // new feature - not working
     SEO_GOOGLE_SITE_VERIFICATION: process.env.SEO_GOOGLE || '',
+    ogImageGenerateHost: 'og-zl.vercel.app', // default
     starrySky: true, // StarrySKy Background animation (dark theme only...)
     buttonData: [
         /*

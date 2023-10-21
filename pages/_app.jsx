@@ -52,9 +52,12 @@ function App({ Component, pageProps, needContainer=true }) {
       <ThemeProvider attribute="class" enableSystem>
         {BLOG.starrySky && (<StarrySky />)}
         <Navbar />
-        <div className={`flex flex-col min-h-screen justify-between space-y-4 ${needContainer && 'container'} ${inter.className}`}>
+        <div className={`${inter.className}`}>
           <Component {...pageProps} />
-          <Footer />
+          <div className={` ${needContainer && 'container'}`}>
+            <br/>
+            <Footer />
+          </div>
         </div>
       </ThemeProvider>
       <style jsx global>
