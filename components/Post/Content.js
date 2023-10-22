@@ -68,7 +68,9 @@ export default function Content(props) {
                 {frontMatter.tags && (
                   <div className='flex flex-nowrap gap-2 max-w-full overflow-x-auto article-tags'>
                     {frontMatter.tags.map((tag) => (
-                      <div key={tag} className='inline-flex  items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/8'>{tag}</div>
+                      <div key={tag} className='inline-flex  items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/8'>
+                        {/*<Link href={`tag/${tag}`}>*/}{tag}
+                      </div>
                     ))}
                   </div>
                 )}
