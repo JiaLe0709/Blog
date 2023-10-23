@@ -24,6 +24,10 @@ const components = {
   })
 }
 
+const PrismMac = dynamic(() => import('@/components/PrismMac'), {
+  ssr: false
+})
+
 /**
  * Notion page renderer
  *
@@ -39,12 +43,14 @@ export default function NotionRenderer (props) {
     }
  
   return (
-    <Renderer
+    <div>
+      <Renderer
       components={components}
       mapPageUrl={mapPageUrl}
       recordMap={props.blockMap}
       {...props}
     />
+    </div>
   )
  }
 
