@@ -12,6 +12,7 @@ const BLOG = {
     defaultCover: '/cover.jpg',
     path: '', // dont't modify
     postsPerPage: 5, // int only
+    theme: 'dark',
     /*
     * PWA = manifest.json in ./public
     - Update the data there

@@ -1,19 +1,19 @@
-import React from 'react'
+import  { useEffect } from 'react'
 
 const StarrySky = () => {
-  React.useEffect(() => {
-    dark()
+  useEffect(() => {
+    renderStarrySky()
   }, [])
   return (
     <div className="relative">
-      <canvas id="starry-sky-vixcity" style={{zIndex:1}} className="top-0 fixed pointer-events-none"></canvas>
+      <canvas id="starry-sky-vixcity" style={{zIndex:5}} className="top-0 fixed pointer-events-none"></canvas>
     </div>
   )
 }
 
 export default StarrySky
 
-function dark() {
+function renderStarrySky() {
   window.requestAnimationFrame =
     window.requestAnimationFrame ||
     window.mozRequestAnimationFrame ||
@@ -120,7 +120,7 @@ function dark() {
       u()
     })(),
     (function t() {
-      document.getElementsByTagName('html')[0].className == 'dark' && u(),
+      document.getElementsByTagName('html')[0].className.indexOf('dark')>=0 && u(),
         window.requestAnimationFrame(t)
     })()
 }
