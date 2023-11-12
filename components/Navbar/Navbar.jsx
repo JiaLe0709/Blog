@@ -10,7 +10,8 @@ export default function Navigation() {
   const Home = pathname === "/";
   const Contact = pathname === "/contact";
   const PostPage = pathname === "/posts";
-  const exceptionalPage = !(Home || Contact || PostPage);
+  const ProjectPath = pathname === '/project'
+  const exceptionalPage = !(Home || Contact || PostPage || ProjectPath);
 
   if (exceptionalPage) {
     return null;
@@ -45,6 +46,13 @@ export default function Navigation() {
           )}
         </div>
         <div className="flex gap-2">
+          <Link
+            href="/project"
+            className={buttonVariants({ variant: "ghost" })}
+            aria-label="Project Page"
+          >
+            Project
+          </Link>
           <Link
             href="/about"
             className={buttonVariants({ variant: "ghost" })}
