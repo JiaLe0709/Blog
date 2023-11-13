@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { ArrowRight, Newspaper, FolderGit2 } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Button } from "@/components/ui/button"
+import Image from 'next/image';
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyPost: true })
@@ -131,7 +132,7 @@ const IndexPage = ({ postsToShow, blockMap, posts, project, projectToShow }) => 
                 <DialogContent className="sm:max-w-[425px]">
                   <DialogHeader>
                     <br />
-                    <img
+                    <Image
                       alt="Profile picture"
                       className="object-cover w-full rounded-lg"
                       src={project?.page_cover}
