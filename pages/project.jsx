@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/notion'
 import BLOG from '@/blog.config'
 import { Button } from "@/components/ui/button"
+import Image from 'next/image'
 
 export async function getStaticProps() {
   const posts = await getAllPosts({ onlyProject: true })
@@ -48,7 +49,7 @@ const Project = ({ post, postsToShow }) => {
                   <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>
                       <br />
-                      <img
+                      <Image
                         alt="Profile picture"
                         className="object-cover w-full rounded-lg"
                         src={post?.page_cover}
