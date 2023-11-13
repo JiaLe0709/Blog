@@ -29,9 +29,9 @@ const Project = ({ post, postsToShow }) => {
         <main>
           <div className='mx-auto max-w-2xl space-y-8 my-10'>
             <div className='my-auto font-semibold text-lg flex gap-2 '>
-                <FolderGit2 width={20} height={20} className="my-auto" />
-                <p className="my-auto font-semibold text-lg">Project</p>
-              </div>
+              <FolderGit2 width={20} height={20} className="my-auto" />
+              <p className="my-auto font-semibold text-lg">Project</p>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
 
@@ -60,6 +60,15 @@ const Project = ({ post, postsToShow }) => {
                       />
                       <br />
                       <DialogTitle><h3>{post.title}</h3></DialogTitle>
+                      {post.tags && (
+                        <div className='flex flex-nowrap gap-2 max-w-full overflow-x-auto article-tags'>
+                          {post.tags.map((tag) => (
+                            <div key={tag} className='inline-flex  items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/8'>
+                              <p>{tag}</p>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                       <DialogDescription>
                         <FormattedDate date={post.date} />
                         <br /><br />
@@ -90,13 +99,9 @@ const Project = ({ post, postsToShow }) => {
               ))}
             </div>
 
-
+                          
           </div>
         </main>
-
-
-
-
       </Layout>
     </>
   )
