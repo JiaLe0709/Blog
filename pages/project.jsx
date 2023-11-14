@@ -26,7 +26,7 @@ const Project = ({ post, postsToShow }) => {
   //console.log(postsToShow)
   return (
     <>
-      <Layout title={'Project'}>
+      <Layout title={'Project'} needConatiner={true}>
         <main>
           <div className='mx-auto max-w-2xl space-y-8 my-10'>
             <div className='my-auto font-semibold text-lg flex gap-2 '>

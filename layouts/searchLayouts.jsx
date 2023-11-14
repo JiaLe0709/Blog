@@ -25,17 +25,6 @@ const SearchLayout = ({ posts, currentTag, tags }) => {
       <div className="sticky py-4 top-0 z-50 w-full bg-opacity-75 backdrop-blur-lg">
         <div className="flex justify-between container">
           <div>
-            <div>
-              <div className="flex sm:hidden">
-                <Link
-                  href="/"
-                  className={buttonVariants({ variant: "ghost" })}
-                  aria-label="Home Page"
-                >
-                  Home
-                </Link>
-              </div>
-            </div>
             <Back />
           </div>
           <div className="flex gap-2">

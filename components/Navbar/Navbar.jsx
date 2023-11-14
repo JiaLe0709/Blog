@@ -64,7 +64,7 @@ export default function Navigation() {
   }
 
   return (
-    <div className="sticky py-4 top-0 z-50 w-full bg-opacity-75 backdrop-blur-lg">
+    <div className="py-4 top-0 z-50 w-full bg-opacity-75 backdrop-blur-lg">
       <div className="flex justify-between container">
         <div>
           {Home ? (
