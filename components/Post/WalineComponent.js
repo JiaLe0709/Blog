@@ -3,6 +3,7 @@ import { init } from '@waline/client'
 import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import '@waline/client/dist/waline.css'
+
 const path = ''
 let waline = null
 
@@ -10,11 +11,12 @@ const WalineComponent = (props) => {
   const containerRef = React.createRef()
   const router = useRouter()
 
-  const updateWaline = url => {
+  const updateWaline = React.useCallback((url) => {
     if (url !== path && waline) {
       waline.update(props)
     }
-  }
+  }, [props])
+
   React.useEffect(() => {
     if (!waline) {
       waline = init({
@@ -34,13 +36,17 @@ const WalineComponent = (props) => {
         ]
       })
     }
-    // 跳转评论
-    router.events.on('routeChangeComplete', updateWaline)
+
+    const handleRouteChange = () => {
+      updateWaline(window.location.pathname)
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+
     const anchor = window.location.hash
     if (anchor) {
-      // 选择需要观察变动的节点
       const targetNode = document.getElementsByClassName('wl-cards')[0]
-      // 当观察到变动时执行的回调函数
+
       const mutationCallback = (mutations) => {
         for (const mutation of mutations) {
           const type = mutation.type
@@ -57,18 +63,21 @@ const WalineComponent = (props) => {
           }
         }
       }
-      // 观察子节点 变化
+
       const observer = new MutationObserver(mutationCallback)
       observer.observe(targetNode, { childList: true })
     }
+
     return () => {
       if (waline) {
         waline.destroy()
         waline = null
       }
-      router.events.off('routeChangeComplete', updateWaline)
+      router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [])
+  }, [containerRef, props, router.events, updateWaline])
+
   return <div ref={containerRef} />
 }
+
 export default WalineComponent
